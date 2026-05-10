@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Admin MVC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #000000 !important;
+            padding: 1rem 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #1DB954 !important;
+            font-size: 1.5rem;
+        }
+        .btn-spotify {
+            background-color: #1DB954;
+            color: white;
+            font-weight: 700;
+            border-radius: 500px;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .btn-spotify:hover {
+            background-color: #1ed760;
+            transform: scale(1.05);
+            color: white;
+        }
+        .card {
+            background-color: #181818;
+            border: none;
+            border-radius: 8px;
+            color: white;
+        }
+        .table {
+            color: #b3b3b3;
+        }
+        .table thead th {
+            color: white;
+            border-bottom: 1px solid #282828;
+        }
+        .table td {
+            border-bottom: 1px solid #282828;
+            vertical-align: middle;
+        }
+        tr:hover {
+            background-color: #282828 !important;
+        }
+        .text-muted {
+            color: #b3b3b3 !important;
+        }
+        input.form-control {
+            background-color: #333333;
+            border: none;
+            color: white;
+        }
+        input.form-control:focus {
+            background-color: #404040;
+            color: white;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-spotify me-2" viewBox="0 0 16 16">
+                  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.67.231c-1.84-.825-4.154-1.085-6.87-.463a.5.5 0 1 1-.222-.975c3.004-.683 5.566-.376 7.627.54a.5.5 0 0 1 .135.667m.655-2.185a.625.625 0 0 1-.858.206c-2.15-1.321-5.428-1.704-7.952-.938a.626.626 0 0 1-.363-1.196c2.894-.877 6.51-.439 8.968 1.071a.625.625 0 0 1 .205.857m.053-2.311c-2.578-1.531-6.837-1.672-9.288-.928a.751.751 0 1 1-.438-1.436c2.822-.857 7.534-.687 10.51 1.079a.75.75 0 1 1-.784 1.285"/>
+                </svg>
+                Spotify Dashboard
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

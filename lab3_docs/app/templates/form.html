@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h2 class="mb-4 text-center">{% if track %}Edit Track{% else %}Create Track{% endif %}</h2>
+            <form action="{% if track %}/tracks/{{ track.id }}/edit{% else %}/tracks/new{% endif %}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label text-muted small text-uppercase fw-bold">Track Title</label>
+                    <input type="text" name="title" class="form-control form-control-lg .text-light" value="{{ track.title if track else '' }}" placeholder="Enter track title" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-muted small text-uppercase fw-bold">Artist Name</label>
+                    <input type="text" name="artist" class="form-control form-control-lg" value="{{ track.artist if track else '' }}" placeholder="Enter artist name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label text-muted small text-uppercase fw-bold">Duration (seconds)</label>
+                    <input type="number" name="duration_sec" class="form-control form-control-lg" value="{{ track.duration_sec if track else '' }}" placeholder="e.g. 180" required>
+                </div>
+                <div class="d-flex gap-3 mt-4">
+                    <a href="/" class="btn btn-outline-light flex-grow-1 border-0">Cancel</a>
+                    <button type="submit" class="btn btn-spotify flex-grow-1">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

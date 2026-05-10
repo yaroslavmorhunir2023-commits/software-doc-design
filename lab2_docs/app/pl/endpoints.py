@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
-from data_access.database import SessionLocal
-from interfaces.interfaces import ISpotifyService
-from dal.repositories import SpotifyRepository
-from bll.services import SpotifyService
+from lab2_docs.app.data_access.database import SessionLocal
+from lab2_docs.app.interfaces.interfaces import ISpotifyService
+from lab2_docs.app.dal.repositories import SpotifyRepository
+from lab2_docs.app.bll.services import SpotifyService
 
-from generate_csv import generate_spotify_data
+from lab2_docs.app.generate_csv import generate_spotify_data
 
 
 router = APIRouter(prefix="/spotify", tags=["Spotify API"])

@@ -1,4 +1,4 @@
-from interfaces.interfaces import ISpotifyService, ISpotifyRepository
+from lab2_docs.app.interfaces.interfaces import ISpotifyService, ISpotifyRepository
 
 class SpotifyService(ISpotifyService):
     def __init__(self, repository: ISpotifyRepository):

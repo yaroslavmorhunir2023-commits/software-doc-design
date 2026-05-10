@@ -1,8 +1,8 @@
 import csv
 from typing import List, Dict, Any
 from sqlalchemy.orm import Session
-from interfaces.interfaces import ISpotifyRepository
-from data_access.database import UserORM, PlaylistORM, TrackORM, PlaybackStatisticORM
+from lab2_docs.app.interfaces.interfaces import ISpotifyRepository
+from lab2_docs.app.data_access.database import UserORM, PlaylistORM, TrackORM, PlaybackStatisticORM
 
 class SpotifyRepository(ISpotifyRepository):
     def __init__(self, db_session: Session):

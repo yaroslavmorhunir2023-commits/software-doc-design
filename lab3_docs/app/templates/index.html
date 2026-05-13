@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>My Library</h1>
+    <a href="/tracks/new" class="btn btn-spotify">Add New Track</a>
+</div>
+
+<div class="card shadow">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th class="ps-4">#</th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Duration</th>
+                        <th class="text-end pe-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for track in tracks %}
+                    <tr>
+                        <td class="ps-4">{{ loop.index }}</td>
+                        <td>
+                            <div class="fw-bold">{{ track.title }}</div>
+                        </td>
+                        <td>{{ track.artist }}</td>
+                        <td>{{ track.duration_sec // 60 }}:{{ "%02d" | format(track.duration_sec % 60) }}</td>
+                        <td class="text-end pe-4">
+                            <a href="/tracks/{{ track.id }}/edit" class="btn btn-sm border-0 me-2 btn-warning">Edit</a>
+                            <form action="/tracks/{{ track.id }}/delete" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger border-0" onclick="return confirm('Delete this track?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center py-5">
+                            <p class="text-muted mb-0">Your library is empty. Let's add some music!</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

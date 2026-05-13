@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from database import get_db, Track
 
 router = APIRouter()
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="lab3_docs/app/templates")
 
 @router.get("/", response_class=HTMLResponse)
 def list_tracks(request: Request, db: Session = Depends(get_db)):
